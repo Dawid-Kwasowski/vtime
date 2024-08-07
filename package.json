@@ -14,6 +14,7 @@
     "@types/uuid": "^9.0.8",
     "@vueuse/core": "^10.6.0",
     "date-fns": "^3.6.0",
+    "firebase": "^10.12.5",
     "pinia": "^2.1.7",
     "roboto-fontface": "*",
     "uuid": "^9.0.1",

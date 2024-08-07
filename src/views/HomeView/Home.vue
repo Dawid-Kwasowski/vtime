@@ -48,11 +48,7 @@
     </v-row>
   </v-container>
 
-  <action-button
-    @click="taskFormDialog = true"
-    color="primary"
-    :disabled="!selectedDay"
-  >
+  <action-button @click="testFunc" color="primary" :disabled="!selectedDay">
     <template #body>
       <v-icon class="mr-2" icon="mdi-plus"></v-icon>
       {{ $t("home.fab.t") }}
@@ -100,6 +96,16 @@ const selectedDay = ref<Date | number>(new Date());
 const skeleton = ref(true);
 
 const taskFormDialog = ref(false);
+
+const testFunc = async () => {
+  const { data } = await supabase
+    .from("profiles")
+    .select("fcm_token")
+    .eq("user_id", "ea68b4be-083f-4bc4-90fb-57b6f53cdd4a")
+    .single();
+
+  console.log("test", data);
+};
 
 const formatedDate = computed(() => {
   if (!selectedDay.value) return "";
